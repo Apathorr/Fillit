@@ -6,9 +6,11 @@
 /*   By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 16:18:12 by rsmith            #+#    #+#             */
-/*   Updated: 2019/04/25 16:51:21 by rsmith           ###   ########.fr       */
+/*   Updated: 2019/04/26 09:38:37 by rsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_fillit.h"
 
 int     put_it_there(char **row, char **piece, int x, int y)
 {
@@ -114,14 +116,14 @@ int     work(char ***piece)
     int     tiny;
     char    **row;
 
-    //tiny = 
-    //row =
+    tiny = squareroot(num_pieces(piece) * 4);
+    row = (make_row(tiny, tiny, '.'));
     while (my_brain(row, piece, 0))
     {
         tiny++;
-        //freerow(row);
-        //row =
+        free_row(row);
+        row = make_row(tiny, tiny, '.');
     }
-    //print_row
+    print_row(row);
     return (0);
 }

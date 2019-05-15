@@ -6,12 +6,11 @@
 /*   By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 18:58:54 by rsmith            #+#    #+#             */
-/*   Updated: 2019/05/02 03:36:19 by rsmith           ###   ########.fr       */
+/*   Updated: 2019/05/14 19:03:40 by rsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "ft_fillit.h"
+#include "../includes/ft_fillit.h"
 
 char	***enter_matrix(int size, int a, int b, char c)
 {
@@ -66,6 +65,7 @@ int		fill_up(char ***matrix, char **str)
 		a++;
 		b = 0;
 	}
+	return (0);
 }
 
 int		clear_row(char ***matrix)
@@ -82,6 +82,7 @@ int		clear_row(char ***matrix)
 		{
 			if (!strcmp(matrix[a][b], "...."))
 			{
+				free(matrix[a][b]);
 				c = b--;
 				while (matrix[a][c])
 				{
@@ -130,10 +131,11 @@ int		clear_all(char ***matrix)
 {
 	int		a;
 	int		b;
-	
 
 	a = 0;
 	b = 0;
+	clear_row(matrix);
+	
 	while (matrix[a])
 	{
 		while (matrix[a][0][b])

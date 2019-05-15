@@ -6,12 +6,11 @@
 /*   By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:27:03 by rsmith            #+#    #+#             */
-/*   Updated: 2019/05/01 19:28:19 by rsmith           ###   ########.fr       */
+/*   Updated: 2019/05/14 16:09:42 by rsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "ft_fillit.h"
+#include "../includes/ft_fillit.h"
 
 int		put_it_there(char **row, char **piece, int x, int y)
 {
@@ -70,7 +69,7 @@ int		is_this_legit(char **row, char **piece, int x, int y)
 	{
 		if (row[x + a] == 0)
 			return (0);
-		while(piece[a][b] != 0)
+		while (piece[a][b] != 0)
 		{
 			if (row[x + a][y + b] == 0)
 				return (0);
@@ -84,7 +83,7 @@ int		is_this_legit(char **row, char **piece, int x, int y)
 	return (1);
 }
 
-int		my_brain(char **row, char **piece, int i)
+int		my_brain(char **row, char ***piece, int i)
 {
 	int		a;
 	int		b;
@@ -100,7 +99,7 @@ int		my_brain(char **row, char **piece, int i)
 			if (is_this_legit(row, piece[i], a, b))
 			{
 				put_it_there(row, piece[i], a, b);
-				if (my_brain(row, piece, i + 1))
+				if (!my_brain(row, piece, i + 1))
 					return (0);
 				ten_second_tidy(row, piece[i], a, b);
 			}
@@ -126,5 +125,6 @@ int		work(char ***piece)
 		row = make_row(tiny, tiny, '.');
 	}
 	print_row(row);
+	free_row(row); //issue
 	return (0);
 }

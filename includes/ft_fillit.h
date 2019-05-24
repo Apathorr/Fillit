@@ -6,7 +6,7 @@
 /*   By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 09:58:03 by ssettle           #+#    #+#             */
-/*   Updated: 2019/05/14 15:42:55 by rsmith           ###   ########.fr       */
+/*   Updated: 2019/05/15 00:09:03 by rsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 /*
 ** MACROS
@@ -59,7 +60,7 @@ int		my_brain(char **row, char ***piece, int i);
 int		put_it_there(char **row, char **piece, int x, int y);
 int		ten_second_tidy(char **row, char **piece, int x, int y);
 int		work(char ***piece);
-
+int    colorcodes(int x);
 /*
 ** Compile
 */

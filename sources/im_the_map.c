@@ -6,7 +6,7 @@
 /*   By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 09:12:28 by rsmith            #+#    #+#             */
-/*   Updated: 2019/05/14 16:25:46 by rsmith           ###   ########.fr       */
+/*   Updated: 2019/05/15 00:19:26 by rsmith           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,22 @@ int		free_row(char **row)
 int		print_row(char **row)
 {
 	int		a;
-
+	int		b;
+		
 	a = 0;
+	b = 0;
 	while (row[a] != 0)
 	{
-		ft_putendl(row[a]);
+		while (row[a][b])
+		{
+			colorcodes(row[a][b] - 65);
+			if (row[a][b] == '.')
+				printf("\e[1;37m");
+			printf("%c", row[a][b]);
+			b++;
+		}
+		printf("\n");
+		b = 0;
 		a++;
 	}
 	return (0);

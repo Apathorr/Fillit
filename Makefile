@@ -6,7 +6,7 @@
 #    By: rsmith <rsmith@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/25 09:19:52 by ssettle           #+#    #+#              #
-#    Updated: 2019/05/10 17:14:44 by rsmith           ###   ########.fr        #
+#    Updated: 2019/05/15 00:04:01 by rsmith           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SOURCES = main.c \
 	legit_check.c \
 	love_and_piece.c \
 	reading_rainbow.c \
+	colors.c \
 
 OBJECTS = $(addprefix $(SRC_DIR),$(SOURCES:.c=.o))
 
